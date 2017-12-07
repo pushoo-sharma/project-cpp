@@ -1,0 +1,7 @@
+This is simple student information system project.Where you can do following things 
+		  1. Add    Records
+          2. List   Records
+          3. Modify Records
+          4. Delete Records
+          5. Exit   Program 
+to store data file is used.
