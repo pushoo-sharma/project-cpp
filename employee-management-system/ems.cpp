@@ -1,14 +1,19 @@
+/*
+It's an menu driven program which is used to manage employee records in an small company.
+The project is implemented in the intend of learning the concepts of cpp.
+*/
+
 #include<iostream>
 #include<fstream>
 #include<iomanip>
 #include<string.h>
-//#include<conio.h>
-#include<stdlib.h>
-#include<stdio.h>
 
-const char* fileName="Employee.txt";
 using namespace std;
 
+//Employee.txt file stores the data entered by the user and is used to retrive back when display option is invoked.
+const char* fileName="Employee.txt";
+
+//Employee class used to implement all the features of an employee and the functions which are used to performed various funtionality on employee records.
 class Employee
 {
   private:
@@ -23,31 +28,35 @@ class Employee
   char* GetDepartment();
 };
 
+//this function is used for input of data from used 
 void Employee::ReadData()
 {
-  cout<<endl<<"Employee ID:";
+  cout<<endl<<"Employee ID :";
   cin>>EmpID;
-  cout<<"Employee Name:";
+  cout<<"Employee Name :";
   cin>>EmpName;
-  cout<<"Employee’s Post:";
+  cout<<"Employee’s Post :";
   cin>>Post;
-  cout<<"Employee’s Department:";
+  cout<<"Employee’s Department :";
   cin>>Department;
-  cout<<"Salary:";
+  cout<<"Salary :";
   cin>>Salary;
 }
 
+//this function is used for output of data from storage
 void Employee::DisplayRecord()
 {
   cout<<endl<<"________________________________________________________________";
   cout<<endl<<setw(5)<<EmpID<<setw(15)<<EmpName<<setw(15)<<Post<<setw(15)<<Department<<setw(8)<<Salary;
 }
 
+//this fuction returns the employee id
 int Employee::GetID()
 {
   return EmpID;
 }
 
+//this funcition returns the employee department
 char* Employee::GetDepartment()
 {
   return Department;
@@ -61,19 +70,21 @@ int main()
 
   fstream file;
   file.open(fileName,ios::ate|ios::in|ios::out|ios::binary);
-
+  
+  //menu driven text which asks for the options to the users and waits for the response
+  //all the options are implemented using the functions from the class employee and embedded into switch case statement
   do
   {
     cout<<"********Menu********";
     cout<<endl<<"Enter your option";
     cout<<endl<<"1 => Add a new record";
-    cout<<endl<<"2 => Search record from employee id";
+    cout<<endl<<"2 => Search record from employee ID";
     cout<<endl<<"3 => List Employee of particular department";
     cout<<endl<<"4 => Display all employee";
     cout<<endl<<"5 => Update record of an employee";
     cout<<endl<<"6 => Delete record of particular employee";
     cout<<endl<<"7 => Exit from the program"<<endl;
-    cout<<"***********************************"<<endl;
+    cout<<"********************************************"<<endl;
     cin>>option;
 
     switch(option)
@@ -81,14 +92,13 @@ int main()
       case '1':
       {
         emp.ReadData();
-      //  file.seekg(0,ios::beg);
         isFound=0;
         file.read((char*)&e,sizeof(e));
         while(!file.eof())
         {
           if(e.GetID()==emp.GetID())
           {
-            cout<<"This ID already exist…Try for another ID";
+            cout<<"This ID already exist.Try for another ID";
             isFound=1;
             break;
           }
@@ -99,14 +109,14 @@ int main()
         file.clear();
         file.seekp(0,ios::end);
         file.write((char*)&emp, sizeof(emp));
-        cout<<endl<<"New record has been added successfully…";
+        cout<<endl<<"New record has been added successfully !";
       }
       break;
 
       case '2':
       {
         isFound=0;
-        cout<<endl<<"Enter ID of an employee to be searched:";
+        cout<<endl<<"Enter ID of an employee to be searched :";
         cin>>ID;
         file.seekg(0,ios::beg);
         file.read((char*)&e,sizeof(e));
@@ -114,7 +124,7 @@ int main()
         {
           if(e.GetID()==ID)
           {
-            cout<<endl<<"The record found…."<<endl;
+            cout<<endl<<"The record found !"<<endl;
             cout<<endl<<setw(5)<<"ID"<<setw(15)<<"Name"<<setw(15)<<"Post"<<setw(15)<<"Department"<<setw(8)<<"Salary";
             e.DisplayRecord();
             isFound=1;
@@ -124,14 +134,14 @@ int main()
         }
         file.clear();
         if(isFound==0)
-        cout<<endl<<"Data not found for employee ID#"<<ID;
+        cout<<endl<<"Data not found for employee ID "<<ID;
       }
       break;
 
       case '3':
       {
         isFound=0;
-        cout<<"Enter department name to list employee within it:";
+        cout<<"Enter department name to list employee within it :";
         cin>>Dept;
         file.seekg(0,ios::beg);
         file.read((char*)&e,sizeof(e));
@@ -149,7 +159,7 @@ int main()
         }
         file.clear();
         if(isFound==0)
-        cout<<endl<<"Data not found for department"<<Dept;
+        cout<<endl<<"Data not found for department !"<<Dept;
       }
       break;
 
@@ -170,7 +180,7 @@ int main()
           e.DisplayRecord();
           file.read((char*)&e,sizeof(e));
         }
-        cout<<endl<<counter<<"records found……" ;
+        cout<<endl<<counter<<"Records found !" ;
         file.clear();
       }
       break;
@@ -178,8 +188,8 @@ int main()
       case '5':
       {
         int recordNo=0;
-        cout<<endl<<"File is being modified….";
-        cout<<endl<<"Enter employee ID to be updated:";
+        cout<<endl<<"File is being under process....... !";
+        cout<<endl<<"Enter employee ID to be updated :";
         cin>>ID;
         isFound=0;
         file.seekg(0,ios::beg);
@@ -189,7 +199,7 @@ int main()
           recordNo++;
           if(e.GetID()==ID)
           {
-            cout<<"The old record of employee having ID"<<ID<<"is:";
+            cout<<"The old record of employee having ID "<<ID<<"is :";
             e.DisplayRecord();
             isFound=1;
             break;
@@ -198,13 +208,13 @@ int main()
         }
         if(isFound==0)
         {
-          cout<<endl<<"Data not found for employee ID#"<<ID;
+          cout<<endl<<"Data not found for employee ID "<<ID;
           break;
         }
         file.clear();
         int location=(recordNo-1)*sizeof(e);
         file.seekp(location,ios::beg);
-        cout<<endl<<"Enter new record for employee having ID"<<ID;
+        cout<<endl<<"Enter new record for employee having ID "<<ID;
         e.ReadData();
         file.write((char*)&e, sizeof(e));
       }
@@ -213,7 +223,7 @@ int main()
       case '6':
       {
         int recordNo=0;
-        cout<<endl<<"Enter employment ID to be deleted:";
+        cout<<endl<<"Enter employment ID to be deleted :";
         cin>>ID;
         isFound=0;
         file.seekg(0,ios::beg);
@@ -223,7 +233,7 @@ int main()
           recordNo++;
           if(e.GetID()==ID)
           {
-            cout<<"The old record of employee having ID "<<ID<<" is: ";
+            cout<<"The old record of employee having ID "<<ID<<" is : ";
             e.DisplayRecord();
             isFound=1;
             break;
@@ -234,7 +244,7 @@ int main()
         fstream temp(tempFile,ios::out|ios::binary);
         if(isFound==0)
         {
-          cout<<endl<<"Data not found for employee ID#"<<ID;
+          cout<<endl<<"Data not found for employee ID "<<ID<<" !";
           break;
         }
         else
@@ -274,7 +284,7 @@ int main()
       cout<<"Invalid Options";
     }
 
-    cout<<"\nDo you want to continue…..?(Y/N)";
+    cout<<"\nDo you want to continue...?(Y/N)";
     cin>>ch;
   }while(ch!='n');
 

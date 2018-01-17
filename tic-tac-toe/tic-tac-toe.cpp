@@ -8,8 +8,7 @@ using namespace std;
 
 #define SIDE 3 // Length of the board
 
-// Computer will move with 'O'
-// and human with 'X'
+// Computer will move with 'O' and human with 'X'
 #define COMPUTERMOVE 'O'
 #define HUMANMOVE 'X'
 
@@ -18,14 +17,11 @@ void showBoard(char board[][SIDE])
 {
 	printf("\n\n");
 
-	printf("\t\t\t  %c | %c  | %c  \n", board[0][0],
-							 board[0][1], board[0][2]);
+	printf("\t\t\t  %c | %c  | %c  \n", board[0][0], board[0][1], board[0][2]);
 	printf("\t\t\t--------------\n");
-	printf("\t\t\t  %c | %c  | %c  \n", board[1][0],
-							 board[1][1], board[1][2]);
+	printf("\t\t\t  %c | %c  | %c  \n", board[1][0], board[1][1], board[1][2]);
 	printf("\t\t\t--------------\n");
-	printf("\t\t\t  %c | %c  | %c  \n\n", board[2][0],
-							 board[2][1], board[2][2]);
+	printf("\t\t\t  %c | %c  | %c  \n\n", board[2][0], board[2][1], board[2][2]);
 
 	return;
 }
@@ -34,8 +30,7 @@ void showBoard(char board[][SIDE])
 void showInstructions()
 {
 	printf("\t\t\t  Tic-Tac-Toe\n\n");
-	printf("Choose a cell numbered from 1 to 9 as below"
-			" and play\n\n");
+	printf("Choose a cell numbered from 1 to 9 as below and play\n\n");
 
 	printf("\t\t\t  1 | 2  | 3  \n");
 	printf("\t\t\t--------------\n");
@@ -83,8 +78,7 @@ void declareWinner(int whoseTurn)
 	return;
 }
 
-// A function that returns true if any of the row
-// is crossed with the same player's move
+// A function that returns true if any of the row is crossed with the same player's move
 bool rowCrossed(char board[][SIDE])
 {
 	for (int i=0; i<SIDE; i++)
@@ -97,8 +91,7 @@ bool rowCrossed(char board[][SIDE])
 	return(false);
 }
 
-// A function that returns true if any of the column
-// is crossed with the same player's move
+// A function that returns true if any of the column is crossed with the same player's move
 bool columnCrossed(char board[][SIDE])
 {
 	for (int i=0; i<SIDE; i++)
@@ -111,8 +104,7 @@ bool columnCrossed(char board[][SIDE])
 	return(false);
 }
 
-// A function that returns true if any of the diagonal
-// is crossed with the same player's move
+// A function that returns true if any of the diagonal is crossed with the same player's move
 bool diagonalCrossed(char board[][SIDE])
 {
 	if (board[0][0] == board[1][1] &&
@@ -128,8 +120,7 @@ bool diagonalCrossed(char board[][SIDE])
 	return(false);
 }
 
-// A function that returns true if the game is over
-// else it returns a false
+// A function that returns true if the game is over else it returns a false
 bool gameOver(char board[][SIDE])
 {
 	return(rowCrossed(board) || columnCrossed(board)
@@ -187,8 +178,7 @@ void playTicTacToe(int whoseTurn)
 		printf("It's a draw\n");
 	else
 	{
-		// Toggling the user to declare the actual
-		// winner
+		// Toggling the user to declare the actual winner
 		if (whoseTurn == COMPUTER)
 			whoseTurn = HUMAN;
 		else if (whoseTurn == HUMAN)
