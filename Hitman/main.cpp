@@ -1,3 +1,4 @@
+/* Its a Spellbound game - Fun with words*/
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -8,7 +9,7 @@ using namespace std;
 
 inline void type_of_word(char f);
 
-
+// driver code
 int main()
 {   char c,h,ch,ch1,ch2;
     char word[25];
@@ -49,6 +50,8 @@ do{
         finn.close();
     }
 
+	// It add the word to the hangword text file and prompts message if hangword textfile not found
+	// Topics of word are movie,animal,sport and songs
   if (ch2 == 'A' || ch2=='a')
 
     {
@@ -70,7 +73,7 @@ do{
 
     }
 
-
+	// Enter the random word and guesses it occurence 
    if (ch2 == 'E' || ch2=='e')
      {// clrscr();
        cin.get();
@@ -89,14 +92,16 @@ n=0;k=0;
     if (word[i]==' ')  {word2[i]=' ';  n++;}
     if (word[i]!=' ')  word2[i]='-';
    }
-ng=l+2-n;     //only 2 guesses extra
+ng=l+2-n;     
+//only 2 guesses extra
    do{
    there:  type_of_word(c);
      if (k!=0)  cout<<"\n\n\t\t\tChoosen letters : "<<choosen<<"\n";
      cout<<"\n\n\n\t\t\t      "<<word2<<"\n\n\nYou have "<<ng
      << " guesses left, choose a letter : ";
      cin>>ch; cin.get();
-     for (i=0;i<25;i++) if (choosen[i]==ch) {//clrscr();
+     for (i=0;i<25;i++) if (choosen[i]==ch) {
+		 //clrscr();
      cout<<"\a\t\t     !!You have choosen "<<ch<<" already!!\n";goto there;}
      ng--; choosen [k]=ch; choosen [k+1]=',';k+=2;
 
@@ -107,7 +112,7 @@ ng=l+2-n;     //only 2 guesses extra
 
     }while(ng>0 || !strcmpi (word2,word));
 
-
+	
 if (strcmpi (word2,word))  cout<<"\nSorry, maybe next time.\n\nThe word was : "
 <<strupr(word)<<endl;
 }
@@ -119,6 +124,8 @@ cin>>ch1;  cin.get();
       system("PAUSE");
       return 0;
 }
+
+//Adds new word to the list **hangword.txt**
 
 inline void type_of_word(char f)
 
