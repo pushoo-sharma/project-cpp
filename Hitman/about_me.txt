@@ -1,0 +1,5 @@
+Hit man brother of Hang Man,
+
+Enjoy ;)
+
+It is a simple project just to provide a Hang Man game concept.In this project I haven’t draw a man for a wrong choice so,try to draw a simple man by using “|” pattern in your project which make your project better .
