@@ -1,0 +1,61 @@
+
+
+                                                    EDUCATOR GUIDE
+															
+													you can refer these gitlist during your course of learning.
+													Coded with love ;)
+
+
+1).How parameters and return values work together in cpp
+https://gist.github.com/pushoo-sharma/26ccdd65ac71ea22e06300fff887098a
+
+2).C++ Default Constructor
+https://gist.github.com/pushoo-sharma/2ce349580ddbb31d28db423f02cd936f
+
+3).C++ Parameterized Constructor
+https://gist.github.com/pushoo-sharma/5b7ae2b13930260723b8dd7eb0b9f662
+
+4).Demonstrate the working of Destructor
+https://gist.github.com/pushoo-sharma/b1b10a4a722f3996f2d6b0d85324e96c
+
+5).Glimpses of this Pointer
+https://gist.github.com/pushoo-sharma/f073a4696b1c71fa0d9b738b7172d7da
+
+6).C++ Static Field
+https://gist.github.com/pushoo-sharma/2ba2041dfd6fa9fbc066e3f68c9b4c3a
+
+7).A look at Friend Function
+https://gist.github.com/pushoo-sharma/45bbf2ed32c55265772f069c80b700ba
+
+8).Using Friend Function to add data object of two different classes
+https://gist.github.com/pushoo-sharma/e0ecb486d7303e2ff1d9dfcb21a7277f
+
+9).Static Function in cpp
+https://gist.github.com/pushoo-sharma/20b6840ce06d0820ab3247f133e86cbc
+
+10). C++ Single Level Inheritance Example: Inheriting Fields 
+https://gist.github.com/pushoo-sharma/1b0c00a5450ac1bbf831d84cc49c0135
+
+11).C++ Multi Level Inheritance Example
+https://gist.github.com/pushoo-sharma/745467911fdb6993f980f513da489491
+
+12).Remove a character from a string to make it a palindrome 
+https://gist.github.com/pushoo-sharma/5bcaf7de59759783c9a24baac6171ee2
+
+13).Count characters at same position as in English alphabets
+https://gist.github.com/pushoo-sharma/0b645224606b85c1db4b7394007501c3
+
+14). Pairs of complete strings in two sets of strings
+https://gist.github.com/pushoo-sharma/d8293972814e18328704c98468322f2b
+
+15). Length of the Longest Consecutive 1s in Binary Representation
+https://gist.github.com/pushoo-sharma/d27a1d8cda4e3d348edfec82e94c816d
+
+16).Multiply a number with 10 without using multiplication operator 
+https://gist.github.com/pushoo-sharma/0f807024f5f31ca318fdf885401a0b91
+
+17).Multiples of 4 (An Interesting Method) 
+https://gist.github.com/pushoo-sharma/d8b214dc106644a507ea6e9664e43b29
+
+18).Calculate XOR from 1 to n.
+https://gist.github.com/pushoo-sharma/6a5cef99902293cc5508e2467030c53f
